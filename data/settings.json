@@ -1,0 +1,22 @@
+{
+    "theme": "dark",
+    "site_name": "AmanitaLove.ru",
+    "site_description": "",
+    "site_keywords": "",
+    "phone": "+7(906) 261-51-34",
+    "email": "griboman@internet.ru",
+    "address": "г. Санкт-Петербург ул.Софийская дом 35 кор.2",
+    "hours": "Понедельник-Воскресенье с 14.30 до 23.00",
+    "telegram": "https:\/\/t.me\/amanita812",
+    "vk": "https:\/\/vk.com\/amanita812",
+    "youtube": "https:\/\/www.youtube.com\/@griboman",
+    "whatsapp": "",
+    "logo_url": "",
+    "favicon_url": "\/favicon.ico",
+    "show_advantages": "yes",
+    "ga_id": "",
+    "ym_id": "",
+    "gsc_tag": "",
+    "ywm_tag": "",
+    "robots": "User-agent: *\nDisallow: \/admin\/\nDisallow: \/api\/\nDisallow: \/data\/\nSitemap: https:\/\/amanitalove.ru\/sitemap.xml"
+}
