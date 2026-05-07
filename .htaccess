@@ -1,0 +1,45 @@
+RewriteEngine On
+
+# Сжатие gzip
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json font/woff2 font/woff
+</IfModule>
+
+# Кэширование в браузере
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# API
+RewriteCond %{REQUEST_URI} ^/api/
+RewriteRule ^api/(.*)$ api.php?action=$1 [L,QSA]
+
+# Sitemap
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+# Отдельные записи (slug)
+RewriteRule ^product/([a-z0-9-]+)\.html$ page.php?type=product&slug=$1 [L,QSA]
+RewriteRule ^blog/([a-z0-9-]+)\.html$ page.php?type=blog&slug=$1 [L,QSA]
+RewriteRule ^news/([a-z0-9-]+)\.html$ page.php?type=news&slug=$1 [L,QSA]
+
+# Старые ссылки по id
+RewriteRule ^product/([0-9]+)$ page.php?type=product&id=$1 [L,QSA]
+RewriteRule ^blog/([0-9]+)$ page.php?type=blog&id=$1 [L,QSA]
+RewriteRule ^news/([0-9]+)$ page.php?type=news&id=$1 [L,QSA]
+
+# Разделы
+RewriteRule ^catalog$ catalog.php [L]
+RewriteRule ^blog$ blog.php [L]
+RewriteRule ^news$ news.php [L]
+RewriteRule ^contacts$ contacts.php [L]
+
+RedirectMatch 403 ^/data/.*$
